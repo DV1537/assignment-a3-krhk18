@@ -7,7 +7,7 @@ class Triangle : public Shape
 {
     private:
     public:
-        Triangle(Position *pPos, int numPositions, std::string type);     //Triangle constructor
+        Triangle(Position *pPos, int numPositions);     //Triangle constructor
      
         ~Triangle();                                                      //Triangle destructor
 

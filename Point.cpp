@@ -1,8 +1,8 @@
 #include "Point.h"
 
-Point::Point(Position *pPos, int numPositions, std::string type)
+Point::Point(Position *pPos, int numPositions)
 {
-    this->type = type;
+    type = "Point";
     nrOfPositions = numPositions;
     posPtr = new Position[numPositions];
     for(int i = 0; i < numPositions; i++)

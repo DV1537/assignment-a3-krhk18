@@ -1,8 +1,8 @@
 #include "Polygon.h"
 
-Polygon::Polygon(Position *pPos, int numPositions, std::string type)
+Polygon::Polygon(Position *pPos, int numPositions)
 {
-    this->type = type;
+    type = "Polygon";
     nrOfPositions = numPositions;
     posPtr = new Position[numPositions];
     for(int i = 0; i < numPositions; i++)

@@ -1,8 +1,8 @@
 #include "Triangle.h"
 
-Triangle::Triangle(Position *pPos, int numPositions, std::string type)
+Triangle::Triangle(Position *pPos, int numPositions)
 {
-    this->type = type;
+    type = "Triangle";
     nrOfPositions = numPositions;
     posPtr = new Position[numPositions];
     for(int i = 0; i < numPositions; i++)

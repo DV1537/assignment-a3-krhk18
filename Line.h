@@ -7,7 +7,7 @@ class Line : public Shape
 {
     private:
     public:
-        Line(Position *pPos, int numPositions, std::string type);      //Line constructor
+        Line(Position *pPos, int numPositions);      //Line constructor
 
         ~Line();        //Line destructor
 

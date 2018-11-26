@@ -7,7 +7,7 @@ class Point : public Shape
 {
     private:
     public:
-        Point(Position *pPos, int numPositions, std::string type);     //Point constructor
+        Point(Position *pPos, int numPositions);     //Point constructor
 
         ~Point();                                  //Point destructor
 
