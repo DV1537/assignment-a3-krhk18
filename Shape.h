@@ -24,9 +24,10 @@ class Shape
 {
     protected:
         int nrOfPositions;
-        Position *posPtr;
+        
         std::string type;
     public:
+        Position *posPtr;           //OBS!!!!! move this to protected later, its here just because being able to print it in A3...
         std::string getType() const                     //returns a string denoting type of a shape (point, line, polygon ..)
         {
             return type;
