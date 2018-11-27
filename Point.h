@@ -11,6 +11,8 @@ class Point : public Shape
 
         ~Point();                                  //Point destructor
 
+        Point& operator=(const Point &point);
+
         double area()           
         {
             return -1;

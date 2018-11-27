@@ -17,6 +17,27 @@ Polygon::~Polygon()
     posPtr = nullptr;
 }
 
+Polygon& Polygon::operator=(const Polygon &polygon)
+{
+	if(this == &polygon)       //If same object
+    {
+        return *this;           //Done
+	}
+    else
+    {
+        type = polygon.type;
+        nrOfPositions = polygon.nrOfPositions;
+        delete [] posPtr;                               //Delete existing
+        posPtr = new Position[polygon.nrOfPositions];      //Make new
+        for(int i = 0; i < polygon.nrOfPositions; i++)     
+        {
+            posPtr[i] = polygon.posPtr[i];             //Fill with the one being copied
+        }
+        
+        return *this;
+    }
+}
+
 double Polygon::area()
 {
     double area = 0.0;

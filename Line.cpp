@@ -17,6 +17,27 @@ Line::~Line()       //Line destructor
     posPtr = nullptr;
 }
 
+Line &Line::operator=(const Line &line)
+{
+    if(this == &line)
+    {
+        return *this;
+    }
+    else
+    {
+        this->type = line.type;
+        nrOfPositions = line.nrOfPositions;
+        delete[] posPtr;
+        posPtr = new Position[nrOfPositions];
+        for(int i = 0; i < nrOfPositions; i++)
+        {
+            posPtr[i] = line.posPtr[i];
+        }
+        return *this;
+    }
+        
+}
+
 double Line::circumreference()
 {
     double circumference = 0.0;

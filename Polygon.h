@@ -11,6 +11,8 @@ class Polygon : public Shape
 
         ~Polygon();     //Polygon destructor
 
+        Polygon& operator=(const Polygon &polygon);
+
         double area();
 
         double circumreference();

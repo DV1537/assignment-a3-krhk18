@@ -10,6 +10,8 @@ class Line : public Shape
         Line(Position *pPos, int numPositions);      //Line constructor
 
         ~Line();        //Line destructor
+    
+        Line &operator=(const Line &line);
 
         double area()      //returns area of the object     
         {
