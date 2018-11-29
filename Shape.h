@@ -23,10 +23,11 @@ There should not be a limitation of how many points the program can load. */
 class Shape
 {
     protected:
-        int nrOfPositions;
+        
         
         std::string type;
     public:
+        int nrOfPositions;          //OBS!!!!! move this to protected later, its here just because being able to print it in A3...
         Position *posPtr;           //OBS!!!!! move this to protected later, its here just because being able to print it in A3...
         std::string getType() const                     //returns a string denoting type of a shape (point, line, polygon ..)
         {

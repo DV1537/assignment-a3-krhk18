@@ -11,8 +11,6 @@ class Line : public Shape
 
         ~Line();        //Line destructor
     
-        Line &operator=(const Line &line);
-
         double area();      //returns area of the object     
 
         double circumreference();       //returns circumreference of the object (interpreted as the length of the line)

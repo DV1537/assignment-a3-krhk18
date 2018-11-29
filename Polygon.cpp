@@ -35,6 +35,46 @@ Polygon::~Polygon()
     posPtr = nullptr;
 }
 
+Polygon &Polygon::operator=(const Polygon &polygon)
+{
+    if(this == &polygon)
+    {
+        return *this;
+    }
+    else
+    {
+        this->type = polygon.type;
+        this->nrOfPositions = polygon.nrOfPositions;
+        delete[] posPtr;
+        posPtr = new Position[polygon.nrOfPositions];
+        for(int i = 0; i < polygon.nrOfPositions; i++)
+        {
+            posPtr[i] = polygon.posPtr[i];
+        }
+        return *this;
+    }
+}
+
+Polygon operator+(const Polygon &polygonOne, const Polygon &polygonTwo)
+{
+    int numPos = polygonOne.nrOfPositions + polygonTwo.nrOfPositions;       //Add number of positions
+    Position *ptr = new Position[numPos];                                   //Create new allocated memory for added polygon objects.
+    for(int i = 0; i < polygonOne.nrOfPositions; i++)                       
+    {
+        ptr[i] = polygonOne.posPtr[i];                      //Copy positions from first polygon
+    }
+    for(int i = 0; i < polygonTwo.nrOfPositions; i++)
+    {
+        ptr[i + polygonOne.nrOfPositions] = polygonTwo.posPtr[i];   //Copy positions from second polygon
+    }
+    Polygon addedPolygon(ptr, numPos);      //Create new polygon of the two added ones
+
+    delete[] ptr;
+    ptr = nullptr;
+
+    return addedPolygon;             
+}
+
 /* Polygon& Polygon::operator=(const Polygon &polygon)
 {
 	if(this == &polygon)       //If same object

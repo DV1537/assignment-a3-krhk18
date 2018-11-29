@@ -17,26 +17,6 @@ Point::~Point()
     posPtr = nullptr;
 }
 
-Point &Point::operator=(const Point &point)
-{
-    if(this == &point)
-    {
-        return *this;
-    }
-    else
-    {
-        this->type = point.type;
-        this->nrOfPositions = point.nrOfPositions;
-        delete[] posPtr;
-        posPtr = new Position[point.nrOfPositions];
-        for(int i = 0; i < point.nrOfPositions; i++)
-        {
-            posPtr[i] = point.posPtr[i];
-        }
-        return *this;
-    }
-}
-
 double Point::area()
 {
     double area = -1;

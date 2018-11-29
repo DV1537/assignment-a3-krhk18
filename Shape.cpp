@@ -20,7 +20,7 @@ Position Shape::position()
 bool Shape::isConvex()
 {
     bool isConvex = true;
-    bool sign = true;
+    bool sign = true;     
     bool first = true;
 
     for(int i = 0; i < nrOfPositions; i++)
@@ -55,12 +55,12 @@ bool Shape::isConvex()
 
 double Shape::distance(Shape *s)
 {
-    double x1Mid = this->position().xCoord;
-    double y1Mid = this->position().yCoord;
-    double x2Mid = s->position().xCoord;
-    double y2Mid = s->position().yCoord;
+    double xFirst = this->position().xCoord;
+    double yFirst = this->position().yCoord;
+    double xSecond = s->position().xCoord;
+    double ySecond = s->position().yCoord;
 
-    double distance = sqrt(pow((x1Mid - x2Mid), 2) + pow((y1Mid - y2Mid), 2));
+    double distance = sqrt(pow((xFirst - xSecond), 2) + pow((yFirst - ySecond), 2));
 
     return distance;
 }

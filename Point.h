@@ -11,8 +11,6 @@ class Point : public Shape
 
         ~Point();                                  //Point destructor
 
-        Point& operator=(const Point &point);
-
         double area();
 
         double circumreference();       //returns circumreference of the object
