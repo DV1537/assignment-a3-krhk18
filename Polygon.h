@@ -11,7 +11,10 @@ class Polygon : public Shape
 
         ~Polygon();     //Polygon destructor
 
-        Polygon& operator=(const Polygon &polygon);
+/*         Polygon& operator=(const Polygon &polygon);
+
+     //Polygon& operator+(const Polygon &polygon);
+        friend Polygon operator+(const Polygon& poly1, const Polygon& poly2); */
 
         double area();
 

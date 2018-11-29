@@ -41,37 +41,30 @@ Triangle& Triangle::operator=(const Triangle &triangle)
 double Triangle::area()     
 {
     double area = 0.0;
-
-    if(this->isConvex())    
-    {
-        int j = nrOfPositions - 1; 
-        for (int i = 0; i < nrOfPositions; i++)
-        { 
-            area += (posPtr[j].xCoord + posPtr[i].xCoord) * (posPtr[j].yCoord - posPtr[i].yCoord); 
-            j = i;
-        } 
-        area = fabs(area / 2.0);
+    int j = nrOfPositions - 1; 
+    for (int i = 0; i < nrOfPositions; i++)
+    { 
+        area += (posPtr[j].xCoord + posPtr[i].xCoord) * (posPtr[j].yCoord - posPtr[i].yCoord); 
+        j = i;
     }
-    else
+    area = fabs(area / 2.0);
+    
+    if(area == 0)
     {
         area = -1;      //-1 if the shape is concave
     }
     
-    if(area == 0)       // -1 if doesn't have an area
-    {
-        area = -1;
-    }
     return area;
 }
 
 double Triangle::circumreference()
 {
     double circumference = 0.0;
-    int j = nrOfPositions - 1;
-    for(int i = 0; i < nrOfPositions; i++)
+    int j = nrOfPositions - 1;                  //Make j last position
+    for(int i = 0; i < nrOfPositions; i++)      //Loop the triangle. First loop i = first position, and j = last position. Second loop i = secondpostion, and j = first position. And so on.
     {
-        circumference += sqrt(pow((posPtr[i].xCoord - posPtr[j].xCoord), 2) + pow((posPtr[i].yCoord - posPtr[j].yCoord), 2));
-        j = i;
+        circumference += sqrt(pow((posPtr[i].xCoord - posPtr[j].xCoord), 2) + pow((posPtr[i].yCoord - posPtr[j].yCoord), 2));   //add the length of the line between the two current positions (length calculated by using pythagoras)
+        j = i;      //move j forward to position of i (that is one ahead)
     }
     return circumference;
 }

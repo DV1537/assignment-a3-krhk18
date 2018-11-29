@@ -38,12 +38,14 @@ Line &Line::operator=(const Line &line)
         
 }
 
-double Line::circumreference()
+double Line::area()
 {
-    double circumference = 0.0;
-    for(int i = 0; i < nrOfPositions - 1; i++)
-    {
-        circumference += sqrt(pow((posPtr[i].xCoord - posPtr[i + 1].xCoord), 2) + pow((posPtr[i].yCoord - posPtr[i + 1].yCoord), 2));
-    }
+    double area = -1;
+    return area;
+}
+
+double Line::circumreference()      //Circumference of a line is interpreted as the length of the line.
+{
+    double circumference = sqrt(pow((posPtr[0].xCoord - posPtr[1].xCoord), 2) + pow((posPtr[0].yCoord - posPtr[1].yCoord), 2));
     return circumference;
 }

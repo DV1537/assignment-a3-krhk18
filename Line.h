@@ -13,12 +13,9 @@ class Line : public Shape
     
         Line &operator=(const Line &line);
 
-        double area()      //returns area of the object     
-        {
-            return -1;
-        }
+        double area();      //returns area of the object     
 
-        double circumreference();       //returns circumreference of the object
+        double circumreference();       //returns circumreference of the object (interpreted as the length of the line)
 };
 
 #endif

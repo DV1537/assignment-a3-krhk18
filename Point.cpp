@@ -36,3 +36,15 @@ Point &Point::operator=(const Point &point)
         return *this;
     }
 }
+
+double Point::area()
+{
+    double area = -1;
+    return area;
+}
+
+double Point::circumreference()
+{
+    double area = -1;
+    return area;
+}

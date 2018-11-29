@@ -1,9 +1,27 @@
 #include "Polygon.h"
+#include "Triangle.h"
 
 Polygon::Polygon(Position *pPos, int numPositions)
 {
-    type = "Polygon";
+    if(numPositions == 1)
+    {
+        type = "Point";
+    }
+    else if(numPositions == 2)
+    {
+        type = "Line";
+    }
+    else if(numPositions == 3)
+    {
+        type = "Triangle";
+    }
+    else if(numPositions >= 4)
+    {
+        type = "Polygon (with coordinates >3)";
+    }
+
     nrOfPositions = numPositions;
+
     posPtr = new Position[numPositions];
     for(int i = 0; i < numPositions; i++)
     {
@@ -17,7 +35,7 @@ Polygon::~Polygon()
     posPtr = nullptr;
 }
 
-Polygon& Polygon::operator=(const Polygon &polygon)
+/* Polygon& Polygon::operator=(const Polygon &polygon)
 {
 	if(this == &polygon)       //If same object
     {
@@ -36,12 +54,68 @@ Polygon& Polygon::operator=(const Polygon &polygon)
         
         return *this;
     }
+} */
+
+/* Polygon operator+(const Polygon& poly1, const Polygon& poly2)
+{
+    int nrOfPositions = poly1.nrOfPositions + poly2.nrOfPositions;
+    if(nrOfPositions == 1)
+    {
+        type = "Point";
+    }
+    else if(nrOfPositions == 2)
+    {
+        type = "Line";
+    }
+    else if(nrOfPositions == 3)
+    {
+        type = "Triangle";
+    }
+    else if(nrOfPositions >= 4)
+    {
+        type = "Polygon";
+    }
+    
+    delete[] posPtr;
+    posPtr = new Position[polygon.nrOfPositions]
+    for(int i = 0; i < polygon.nrOfPositions; i++)
+    {
+        posPtr[i] = polygon.posPtr[i];
+    }
+
+    return *this;
 }
+ */
 
 double Polygon::area()
 {
     double area = 0.0;
-    if(this->isConvex())    //-1 if the shape is concave
+    if(nrOfPositions <= 2 || this->isConvex() == false)
+    {
+        area = -1;
+    }
+    else
+    {
+        Position trianglePositions[3];
+        trianglePositions[0] = posPtr[0];
+        for(int i = 0; i < nrOfPositions - 2; i++)
+        {
+            for(int j = 1; j < 3; j++)
+            {
+                trianglePositions[j] = posPtr[j + i];
+            }
+            Triangle trianglePartOfPolygon(trianglePositions, 3);
+
+            area += trianglePartOfPolygon.area();
+        }
+    }
+    if(area == 0)
+    {
+        area = -1;
+    }
+
+    return area;
+    /*if(this->isConvex())    //-1 if the shape is concave
     {
         int j = nrOfPositions - 1; 
         for (int i = 0; i < nrOfPositions; i++)
@@ -59,8 +133,7 @@ double Polygon::area()
     if(area == 0)   //-1 if doesn't have an area
     {
         area = -1;
-    }
-    return area;
+    }*/
 }
 
 double Polygon::circumreference()
