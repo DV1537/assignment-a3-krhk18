@@ -1,3 +1,4 @@
+#include <fstream>
 #include "Polygon.h"
 #include "Triangle.h"
 
@@ -73,6 +74,17 @@ Polygon operator+(const Polygon &polygonOne, const Polygon &polygonTwo)
     ptr = nullptr;
 
     return addedPolygon;             
+}
+
+std::ostream &operator<<(std::ostream &out, const Polygon &polygon)
+{
+    out << polygon.type << "\n";
+    for(int i = 0; i < polygon.nrOfPositions; i++)
+    {
+       out << "X: " << polygon.posPtr[i].xCoord << ", Y: " << polygon.posPtr[i].yCoord << std::endl;
+    }
+    
+    return out;   
 }
 
 /* Polygon& Polygon::operator=(const Polygon &polygon)
