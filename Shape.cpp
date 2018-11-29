@@ -16,7 +16,6 @@ Position Shape::position()
     return midPosition;
 }
 
-
 bool Shape::isConvex()
 {
     bool isConvex = true;

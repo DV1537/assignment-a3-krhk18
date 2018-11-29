@@ -1,4 +1,3 @@
-#include <fstream>
 #include "Polygon.h"
 #include "Triangle.h"
 
@@ -87,58 +86,6 @@ std::ostream &operator<<(std::ostream &out, const Polygon &polygon)
     return out;   
 }
 
-/* Polygon& Polygon::operator=(const Polygon &polygon)
-{
-	if(this == &polygon)       //If same object
-    {
-        return *this;           //Done
-	}
-    else
-    {
-        type = polygon.type;
-        nrOfPositions = polygon.nrOfPositions;
-        delete [] posPtr;                               //Delete existing
-        posPtr = new Position[polygon.nrOfPositions];      //Make new
-        for(int i = 0; i < polygon.nrOfPositions; i++)     
-        {
-            posPtr[i] = polygon.posPtr[i];             //Fill with the one being copied
-        }
-        
-        return *this;
-    }
-} */
-
-/* Polygon operator+(const Polygon& poly1, const Polygon& poly2)
-{
-    int nrOfPositions = poly1.nrOfPositions + poly2.nrOfPositions;
-    if(nrOfPositions == 1)
-    {
-        type = "Point";
-    }
-    else if(nrOfPositions == 2)
-    {
-        type = "Line";
-    }
-    else if(nrOfPositions == 3)
-    {
-        type = "Triangle";
-    }
-    else if(nrOfPositions >= 4)
-    {
-        type = "Polygon";
-    }
-    
-    delete[] posPtr;
-    posPtr = new Position[polygon.nrOfPositions]
-    for(int i = 0; i < polygon.nrOfPositions; i++)
-    {
-        posPtr[i] = polygon.posPtr[i];
-    }
-
-    return *this;
-}
- */
-
 double Polygon::area()
 {
     double area = 0.0;
@@ -167,25 +114,6 @@ double Polygon::area()
     }
 
     return area;
-    /*if(this->isConvex())    //-1 if the shape is concave
-    {
-        int j = nrOfPositions - 1; 
-        for (int i = 0; i < nrOfPositions; i++)
-        { 
-            area += (posPtr[j].xCoord + posPtr[i].xCoord) * (posPtr[j].yCoord - posPtr[i].yCoord); 
-            j = i;
-        } 
-        area = fabs(area / 2.0);
-    }
-    else
-    {
-        area = -1;
-    }
-
-    if(area == 0)   //-1 if doesn't have an area
-    {
-        area = -1;
-    }*/
 }
 
 double Polygon::circumreference()
