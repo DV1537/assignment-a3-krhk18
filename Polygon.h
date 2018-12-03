@@ -8,6 +8,8 @@ class Polygon : public Shape
 {
     private:
     public:
+        Polygon();
+
         Polygon(Position *pPos, int numPositions);      //Polygon constructor
 
         ~Polygon();     //Polygon destructor

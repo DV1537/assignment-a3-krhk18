@@ -1,6 +1,13 @@
 #include "Polygon.h"
 #include "Triangle.h"
 
+Polygon::Polygon()
+{
+    type = "Polygon";
+    nrOfPositions = 4;
+    posPtr = new Position[nrOfPositions];
+}
+
 Polygon::Polygon(Position *pPos, int numPositions)
 {
     if(numPositions == 1)
