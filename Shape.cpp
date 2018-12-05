@@ -1,5 +1,7 @@
 #include "Shape.h"
 
+//Returns mid position by adding x-coords and y-coord seperatley
+//and then devide the total by the number of positions.
 Position Shape::position()
 {
     Position midPosition;
@@ -16,6 +18,7 @@ Position Shape::position()
     return midPosition;
 }
 
+//Shape is convex if all dot products are either positive or negative.
 bool Shape::isConvex()
 {
     bool isConvex = true;
@@ -52,6 +55,8 @@ bool Shape::isConvex()
     return isConvex;
 }
 
+//Calculated by finding x- and y-values of both midpositions.
+//Then using pythagoras to calculate the distance between them.
 double Shape::distance(Shape *s)
 {
     double xFirst = this->position().xCoord;

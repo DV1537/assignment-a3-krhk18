@@ -89,10 +89,19 @@ Polygon operator+(const Polygon &polygonOne, const Polygon &polygonTwo)
 
 std::ostream &operator<<(std::ostream &out, const Polygon &polygon)
 {
+    //Print type
     out << polygon.type << "\n";
+    
+    //Print x- and y-coords
     for(int i = 0; i < polygon.nrOfPositions; i++)
     {
-       out << "X: " << polygon.posPtr[i].xCoord << ", Y: " << polygon.posPtr[i].yCoord << std::endl;
+        //Round to 3 decimal digits
+        double xCoord = polygon.posPtr[i].xCoord;
+        xCoord = round(xCoord * 1000) / 1000;
+        double yCoord = polygon.posPtr[i].yCoord;
+        yCoord = round(yCoord * 1000) / 1000;
+        
+        out << "X: " << xCoord << ", Y: " << yCoord << std::endl;
     }
     
     return out;   

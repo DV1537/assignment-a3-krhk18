@@ -115,9 +115,10 @@ int main(int argc, const char * argv[])
         std::cout << polygonPtr[i];
     }
 
-    //Print added polygon + area
-    std::cout << addedPolygon;
-    std::cout << addedPolygon.area() << std::endl;
+    //Print area with 3 decimal digits    
+    double area = addedPolygon.area();
+    area = round(area * 1000) / 1000;
+    std::cout << area << std::endl;
 
     //Free memory
     delete []numbersPtr;
