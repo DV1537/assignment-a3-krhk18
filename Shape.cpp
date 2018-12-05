@@ -1,7 +1,7 @@
 #include "Shape.h"
 
 //Returns mid position by adding x-coords and y-coord seperatley
-//and then devide the total by the number of positions.
+//then devide the total by the number of positions.
 Position Shape::position()
 {
     Position midPosition;

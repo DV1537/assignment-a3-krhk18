@@ -23,12 +23,13 @@ int main(int argc, const char * argv[])
     Polygon *polygonPtr = new Polygon[capacityPolygons];
     int numberOfShapes;
 
-    inputFile.open("input.in");
+    inputFile.open(argv[1]);
 
     //Check if file reads in successfully
     if(!inputFile)
     {
         std::cout << "Error opening file\n";
+        exit(EXIT_FAILURE);
     }
     else
     {
