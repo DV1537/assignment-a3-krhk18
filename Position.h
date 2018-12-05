@@ -1,5 +1,5 @@
-#ifndef COORDINATE_H
-#define COORDINATE_H
+#ifndef POSITION_H
+#define POSITION_H
 
 struct Position
 {
