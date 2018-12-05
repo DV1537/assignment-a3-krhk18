@@ -107,12 +107,11 @@ int main(int argc, const char * argv[])
 
     inputFile.close();
 
-    //Add all the read polygons together
+    //Add all read polygons together
     Polygon addedPolygon;
     for(int i = 0; i < numberOfShapes; i++)
     {
         addedPolygon = addedPolygon + polygonPtr[i];
-        std::cout << polygonPtr[i];
     }
 
     //Print area with 3 decimal digits    
