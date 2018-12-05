@@ -98,6 +98,7 @@ std::ostream &operator<<(std::ostream &out, const Polygon &polygon)
     return out;   
 }
 
+//This function devides a polygon into triangles, and add the triangles area together
 double Polygon::area()
 {
     double area = 0.0;
@@ -128,6 +129,7 @@ double Polygon::area()
     return area;
 }
 
+//Calculates circumference by using pythagoras
 double Polygon::circumreference()
 {
     double circumference = 0.0;

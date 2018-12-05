@@ -33,12 +33,13 @@ double Triangle::area()
     
     if(area == 0)
     {
-        area = -1;      //-1 if the shape is concave
+        area = -1;
     }
     
     return area;
 }
 
+//Calculates circumference by using pythagoras
 double Triangle::circumreference()
 {
     double circumference = 0.0;

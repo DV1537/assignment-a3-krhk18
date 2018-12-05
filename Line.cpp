@@ -1,6 +1,6 @@
 #include "Line.h"
 
-Line::Line(Position *pPos, int numPositions)      //Line constructor
+Line::Line(Position *pPos, int numPositions)
 {
     type = "Line";
     nrOfPositions = numPositions;
@@ -11,7 +11,7 @@ Line::Line(Position *pPos, int numPositions)      //Line constructor
     }
 }
 
-Line::~Line()       //Line destructor
+Line::~Line()
 {
     if(posPtr)
     {
@@ -26,7 +26,8 @@ double Line::area()
     return area;
 }
 
-double Line::circumreference()      //Circumference of a line is interpreted as the length of the line.
+//Circumference of a line is interpreted as the length of the line.
+double Line::circumreference()
 {
     double circumference = sqrt(pow((posPtr[0].xCoord - posPtr[1].xCoord), 2) + pow((posPtr[0].yCoord - posPtr[1].yCoord), 2));
     return circumference;
