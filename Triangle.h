@@ -11,8 +11,6 @@ class Triangle : public Shape
      
         ~Triangle();                                                      //Triangle destructor
 
-        Triangle& operator=(const Triangle &triangle);
-
         double area();
 
         double circumreference();

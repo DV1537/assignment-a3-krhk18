@@ -17,27 +17,6 @@ Triangle::~Triangle()
     posPtr = nullptr;
 }
 
-Triangle& Triangle::operator=(const Triangle &triangle)
-{
-	if(this == &triangle)       //If same object
-    {
-        return *this;           //Done
-	}
-    else
-    {
-        type = triangle.type;
-        nrOfPositions = triangle.nrOfPositions;
-        delete [] posPtr;                               //Delete existing
-        posPtr = new Position[triangle.nrOfPositions];      //Make new
-        for(int i = 0; i < triangle.nrOfPositions; i++)     
-        {
-            posPtr[i] = triangle.posPtr[i];             //Fill with the one being copied
-        }
-        
-        return *this;
-    }
-}
-
 double Triangle::area()     
 {
     double area = 0.0;

@@ -4,7 +4,7 @@
 Polygon::Polygon()
 {
     type = "Polygon";
-    nrOfPositions = 4;
+    nrOfPositions = 0;
     posPtr = new Position[nrOfPositions];
 }
 
