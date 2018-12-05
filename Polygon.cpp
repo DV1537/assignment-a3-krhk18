@@ -1,6 +1,7 @@
 #include "Polygon.h"
 #include "Triangle.h"
 
+//Default constructor
 Polygon::Polygon()
 {
     type = "Polygon";
@@ -8,6 +9,7 @@ Polygon::Polygon()
     posPtr = new Position[nrOfPositions];
 }
 
+//Constructor
 Polygon::Polygon(Position *pPos, int numPositions)
 {
     if(numPositions == 1)
@@ -38,8 +40,11 @@ Polygon::Polygon(Position *pPos, int numPositions)
 
 Polygon::~Polygon()
 {
-    delete[] posPtr;
-    posPtr = nullptr;
+    if(posPtr)
+    {
+        delete[] posPtr;
+        posPtr = nullptr;
+    }
 }
 
 Polygon &Polygon::operator=(const Polygon &polygon)

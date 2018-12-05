@@ -13,8 +13,11 @@ Point::Point(Position *pPos, int numPositions)
 
 Point::~Point()
 {
-    delete[] posPtr;
-    posPtr = nullptr;
+    if(posPtr)
+    {
+        delete[] posPtr;
+        posPtr = nullptr;
+    }
 }
 
 double Point::area()

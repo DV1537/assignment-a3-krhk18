@@ -13,8 +13,11 @@ Triangle::Triangle(Position *pPos, int numPositions)
 
 Triangle::~Triangle()
 {
-    delete[] posPtr;
-    posPtr = nullptr;
+    if(posPtr)
+    {
+        delete[] posPtr;
+        posPtr = nullptr;
+    }
 }
 
 double Triangle::area()     

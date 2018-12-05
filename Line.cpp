@@ -13,8 +13,11 @@ Line::Line(Position *pPos, int numPositions)      //Line constructor
 
 Line::~Line()       //Line destructor
 {
-    delete[] posPtr;
-    posPtr = nullptr;
+    if(posPtr)
+    {
+        delete[] posPtr;
+        posPtr = nullptr;
+    }
 }
 
 double Line::area()
